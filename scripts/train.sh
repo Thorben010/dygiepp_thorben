@@ -9,3 +9,8 @@ config_name=$1
 allennlp train "training_config/${config_name}.jsonnet" \
     --serialization-dir "models/${config_name}" \
     --include-package dygie
+
+
+allennlp train "training_config/covid_config.json" \
+    --serialization-dir "models/model" \
+    --include-package dygie

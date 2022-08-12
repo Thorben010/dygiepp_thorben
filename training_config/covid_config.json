@@ -90,7 +90,7 @@
         "checkpointer": {
             "num_serialized_models_to_keep": 3
         },
-        "cuda_device": 1,
+        "cuda_device": -1,
         "distributed": false,
         "grad_norm": 5,
         "learning_rate_scheduler": {
