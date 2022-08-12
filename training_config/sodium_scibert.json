@@ -19,7 +19,7 @@
                 "bert": {
                     "type": "pretrained_transformer_mismatched",
                     "max_length": 512,
-                    "model_name": "allenai/scibert_scivocab_cased"
+                    "model_name": "allenai/scibert_scivocab_cased",
                 }
             }
         },

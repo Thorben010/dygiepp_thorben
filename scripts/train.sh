@@ -12,5 +12,5 @@ allennlp train "training_config/${config_name}.jsonnet" \
 
 
 allennlp train "training_config/covid_config.json" \
-    --serialization-dir "models/model" \
+    --serialization-dir "models/model_2" \
     --include-package dygie

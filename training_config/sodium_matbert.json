@@ -1,0 +1,127 @@
+
+{
+    "dataset_reader": {
+        "type": "dygie",
+        "cache_directory": "cache",
+        "max_span_width": 12,
+        "token_indexers": {
+            "bert": {
+                "type": "pretrained_transformer_mismatched",
+                "max_length": 512,
+                "model_name": "matscibert"
+            }
+        }
+    },
+    "model": {
+        "type": "dygie",
+        "embedder": {
+            "token_embedders": {
+                "bert": {
+                    "type": "pretrained_transformer_mismatched",
+                    "max_length": 512,
+                    "model_name": "matscibert",
+                }
+            }
+        },
+        "feature_size": 20,
+        "feedforward_params": {
+            "dropout": 0.43057122901142836,
+            "hidden_dims": 215,
+            "num_layers": 2
+        },
+        "initializer": {
+            "regexes": [
+                [
+                    "_span_width_embedding.weight",
+                    {
+                        "type": "xavier_normal"
+                    }
+                ]
+            ]
+        },
+        "loss_weights": {
+            "coref": 0,
+            "events": 0,
+            "ner": 1,
+            "relation": 1
+        },
+        "max_span_width": 12,
+        "module_initializer": {
+            "regexes": [
+                [
+                    ".*weight",
+                    {
+                        "type": "xavier_normal"
+                    }
+                ],
+                [
+                    ".*weight_matrix",
+                    {
+                        "type": "xavier_normal"
+                    }
+                ]
+            ]
+        },
+        "modules": {
+            "coref": {
+                "coref_prop": 0,
+                "max_antecedents": 100,
+                "spans_per_word": 0.3
+            },
+            "events": {
+                "argument_spans_per_word": 0.8,
+                "loss_weights": {
+                    "arguments": 1,
+                    "trigger": 0.2
+                },
+                "trigger_spans_per_word": 0.3
+            },
+            "ner": {},
+            "relation": {
+                "spans_per_word": 0.5
+            }
+        },
+        "target_task": "relation"
+    },
+    "train_data_path": "preprocessing/label-studio_exports/train.json",
+    "validation_data_path": "preprocessing/label-studio_exports/test.json",
+    "test_data_path": "data/mechanic/coarse/test.json",
+    "trainer": {
+        "checkpointer": {
+            "num_serialized_models_to_keep": 3
+        },
+        "cuda_device": -1,
+        "distributed": false,
+        "grad_norm": 5,
+        "learning_rate_scheduler": {
+            "type": "slanted_triangular"
+        },
+        "num_epochs": 100,
+        "optimizer": {
+            "type": "adamw",
+            "lr": 0.0007014695752530686,
+            "parameter_groups": [
+                [
+                    [
+                        "_embedder"
+                    ],
+                    {
+                        "finetune": true,
+                        "lr": 5e-05,
+                        "weight_decay": 0.01
+                    }
+                ]
+            ],
+            "weight_decay": 0
+        },
+        "validation_metric": "+MEAN__relation_f1"
+    },
+    "data_loader": {
+        "sampler": {
+            "type": "random"
+        }
+    },
+    "numpy_seed": 1337,
+    "pytorch_seed": 133,
+    "random_seed": 13370
+}
