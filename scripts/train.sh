@@ -11,6 +11,11 @@ allennlp train "training_config/${config_name}.jsonnet" \
     --include-package dygie
 
 
-allennlp train "training_config/covid_config.json" \
-    --serialization-dir "models/model_2" \
+allennlp train "training_config/sodium_matbert.json" \
+    --serialization-dir "models/sodium_matbert" \
+    --include-package dygie
+
+
+allennlp train "training_config/covid.json" \
+    --serialization-dir "models/sodium_matbert" \
     --include-package dygie
