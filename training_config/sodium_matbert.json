@@ -83,8 +83,8 @@
         },
         "target_task": "relation"
     },
-    "train_data_path": "preprocessing/label-studio_exports/train.json",
-    "validation_data_path": "preprocessing/label-studio_exports/test.json",
+    "train_data_path": "preprocessing/label-studio_exports/output/train.json",
+    "validation_data_path": "preprocessing/label-studio_exports/output/test.json",
     "test_data_path": "data/mechanic/coarse/test.json",
     "trainer": {
         "checkpointer": {
