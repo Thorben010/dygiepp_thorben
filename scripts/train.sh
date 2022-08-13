@@ -17,5 +17,5 @@ allennlp train "training_config/sodium_matbert.json" \
 
 
 allennlp train "training_config/sodium_scibert.json" \
-    --serialization-dir "models/sodium_scibert" \
+    --serialization-dir "models/sodium_scibert_1" \
     --include-package dygie
