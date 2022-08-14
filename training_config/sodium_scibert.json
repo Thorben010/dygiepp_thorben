@@ -99,7 +99,7 @@
         "num_epochs": 100,
         "optimizer": {
             "type": "adamw",
-            "lr": 0.0007014695752530686,
+            "lr": 0.00007014695752530686,
             "parameter_groups": [
                 [
                     [
