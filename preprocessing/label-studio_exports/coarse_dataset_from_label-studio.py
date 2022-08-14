@@ -3,8 +3,6 @@ from nltk.tokenize import word_tokenize
 import jsonlines
 import pickle
 import numpy as np
-from nltk.tokenize.treebank import TreebankWordDetokenizer
-#TreebankWordDetokenizer().detokenize(['the', 'quick', 'brown'])
 
 dataset_name = 'NER_dataset_all'
 f = open('labelled_data/'+dataset_name+'.json')
