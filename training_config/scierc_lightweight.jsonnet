@@ -2,11 +2,11 @@ local template = import "template.libsonnet";
 
 template.DyGIE {
   bert_model: "allenai/scibert_scivocab_cased",
-  cuda_device: 1,
+  cuda_device: -1,
   data_paths: {
-    train: "data/scierc/collated_data/json/train.json",
-    validation: "data/scierc/collated_data/json/dev.json",
-    test: "data/scierc/collated_data/json/test.json",
+    train: "preprocessing/label-studio_exports/output/NER_dataset_all_train.json",
+    validation: "preprocessing/label-studio_exports/output/NER_dataset_all_test.json",
+    test: "data/mechanic/coarse/test.json",
   },
   loss_weights: {
     ner: 0.2,
